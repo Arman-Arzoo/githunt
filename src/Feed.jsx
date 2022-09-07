@@ -1,18 +1,22 @@
 import React from 'react'
-import { Box, Image, Button, Flex } from '@chakra-ui/react'
+import { Box, Image, Button, Flex, Heading, Text } from '@chakra-ui/react'
 
 const Feed = () => {
     return (
-        <Box maxWidth="1200px" mx='auto'>
+        <Box maxWidth="1200px" mx='auto' pt='1rem'>
             <Flex justifyContent="space-between" alignItem='center' >
-                <Box>
+                <Flex alignItems="center" gap='10px'>
                     <Image src="/logo.svg" />
-                </Box>
-                <Box>
+                    <Box>
+                        <Heading fontSize='24px'>GitHunt</Heading>
+                        <Text color='gray.600'>Most Starred Projects on Github</Text>
+                    </Box>
+                </Flex>
+                <Flex gap={"10px"}>
                     <Button >View Source</Button>
-                    <Button variantColor='red'>View Extension</Button>
-                    <Button variantColor="purple">Tweet</Button>
-                </Box>
+                    <Button colorScheme='red'>View Extension</Button>
+                    <Button colorScheme="purple">Tweet</Button>
+                </Flex>
             </Flex>
         </Box>
     )
