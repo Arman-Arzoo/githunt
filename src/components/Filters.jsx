@@ -15,6 +15,8 @@ import {
 import { TiArrowSortedDown, TiArrowSortedUp } from 'react-icons/ti'
 import { BsFillGridFill, BsList } from 'react-icons/bs'
 
+import languages from '../data/languages.json'
+
 
 const Filters = () => {
 
@@ -22,7 +24,11 @@ const Filters = () => {
     return (
         <Stack isInline>
             <Select>
-                <option value="1">urdu</option>
+                {
+                    languages?.map(language => (
+                        <option value={language?.value}>{language?.label}</option>
+                    ))
+                }
             </Select>
 
             <Menu >
