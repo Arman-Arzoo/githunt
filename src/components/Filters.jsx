@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import {
 
     Flex,
@@ -7,13 +7,18 @@ import {
     MenuItem,
     Select,
     Menu,
-    Stack
+    Stack,
+    Button
 
 } from '@chakra-ui/react'
-// import { ChevronDownIcon } from 'react-icons/'
+
+import { TiArrowSortedDown, TiArrowSortedUp } from 'react-icons/ti'
+import { BsFillGridFill, BsList } from 'react-icons/bs'
 
 
 const Filters = () => {
+
+    const [isActionActive, setIsActionActive] = useState(false)
     return (
         <Stack isInline>
             <Select>
@@ -21,10 +26,15 @@ const Filters = () => {
             </Select>
 
             <Menu >
-                <MenuButton as="button"
-                    bg="white" borderWidth={1} px="38px"
+                <MenuButton as={Button}
+                    onClick={() => {
+                        setIsActionActive(!isActionActive)
+                    }}
+                    minWidth="inherit"
+                    bg="white" borderWidth={1}
+                    // px="38px"
                     fontWeight={"normal"}
-                //  rightIcon={<ChevronDownIcon />}
+                    leftIcon={isActionActive ? <TiArrowSortedDown /> : <TiArrowSortedUp />}
                 >
                     Actions
                 </MenuButton>
@@ -36,6 +46,10 @@ const Filters = () => {
                     <MenuItem>Attend a Workshop</MenuItem>
                 </MenuList>
             </Menu>
+            <Stack isInline>
+                <Button leftIcon={<BsFillGridFill />} bg="white">Grid</Button>
+                <Button leftIcon={<BsList />} bg="white">List</Button>
+            </Stack>
         </Stack>
     )
 }
